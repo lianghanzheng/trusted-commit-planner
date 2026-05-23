@@ -26,9 +26,16 @@ argument-hint: "<commit-hash> [--repo <path>]"
 ### Step 1: 获取 diff
 
 ```bash
-git -C <repo> show <commit-hash> --stat      # 先看文件清单和行数
-git -C <repo> show <commit-hash> --no-stat    # 再看完整 diff
+git -C <repo> show <commit-hash>             # 先看 stat 概览 + 完整 diff
 ```
+
+### Step 1.5: 加载项目规范
+
+读取 `docs/Principle/COMMIT_PRINCIPLES.md` 中的以下核心规则。在后续拆分中，**任何违反这些规则的子 commit 方案都必须被拒绝**：
+
+- **规则 2（测试完备性）**：所有代码变更必须附带测试。新功能没有测试 = 不合规。
+- **规则 3（独立验证）**：每个 commit 必须可独立编译和测试。如果某个子 commit 的"独立验证"栏写不出具体可执行的命令，说明拆分有误。
+- **规则 4（单一关注点）**：一个 commit 只做一件事。一个子 commit 不能同时包含 bugfix 和新功能。
 
 ### Step 2: 理解变更语义
 
