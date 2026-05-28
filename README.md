@@ -38,7 +38,7 @@ MigMaster 将 AI 的输出视为**原材料**，而非成品。它提供：
 | **开发流程** | `/pre-plan`、`/micro`、`/commit-review`、`/verify` |
 | **测试与分析** | `/test-gen`（四象限生成 + 抽象降级检测 + IR缩减）、`/split-commit` |
 | **知识** | `/mentor`、`/learn-from`（学习工作簿生成）、`/archeology`（仓库考古）、`/adr` |
-| **反思** | `/check-turn`（转向信号检测）、`/config`（描述性配置） |
+| **反思** | `/check-turn`（转向信号检测）、`/setup`（描述性配置） |
 
 完整的功能边界、输入输出契约、边界场景处理见 [`docs/FormalDesign-v1.md`](docs/FormalDesign-v1.md)。
 
@@ -64,7 +64,7 @@ cd MigMaster
 ### 第一步
 
 1. **阅读动机文档**：[`docs/Discussion/1-Motivation.md`](docs/Discussion/1-Motivation.md)
-2. **配置环境**：在 Claude Code 中运行 `/config`，设置 LLVM 构建路径和工具链位置
+2. **配置环境**：在 Claude Code 中运行 `/setup`，设置 LLVM 构建路径和工具链位置
 3. **从小任务开始**：编写代码前先用 `/pre-plan` 验证任务粒度
 4. **原子执行**：每个 ≤150 行的实现步骤使用 `/micro`
 5. **提交前审查**：使用 `/commit-review` 检查是否符合规范
@@ -110,11 +110,11 @@ MigMaster/
 
 - [x] 工程原则文档
 - [x] Artifact 正式规格说明 (v1)
-- [ ] CLAUDE.md (P0)
+- [x] CLAUDE.md (P0)
 - [ ] Hook (P1)
-- [ ] 核心命令：`/pre-plan`、`/micro`、`/commit-review`、`/verify` (P1)
+- [x] 核心命令：`/pre-plan`、`/micro`、`/commit-review`、`/verify` (P1)
 - [ ] 分析 Skill：`/test-gen`、`/split-commit` (P2)
-- [ ] 知识 Skill：`/learn-from`、`/adr`、`/config` (P2)
+- [ ] 知识 Skill：`/learn-from`、`/adr`、`/setup` (P2)
 - [ ] 扩展 Skill：`/archeology`、`/mentor`、`/check-turn` (P3)
 
 ## 设计原则
